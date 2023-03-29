@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-// ignore: depend_on_referenced_packages
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 import 'package:fwfh_webview/fwfh_webview.dart';
 
@@ -11,24 +10,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'fwfh_webview',
-      home: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
-            left: false,
-            top: true,
-            bottom: true,
-            right: false,
-            child: Column(
-              children: <Widget>[
-                Expanded(
-                  child: HtmlWidget(
-                    '<iframe src="https://www.parolla.app"></iframe>',
-                    factoryBuilder: () => MyWidgetFactory(),
-                  ),
-                ),
-              ],
-            )),
+      title: 'FWFH WebView Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const SafeArea(
+        top: true,
+        bottom: true,
+        left: false,
+        right: false,
+        child: WebView(
+          'https://www.parolla.app',
+          aspectRatio: 1.0,
+        ),
       ),
     );
   }
